@@ -1,5 +1,35 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.form-cont {
+    height: 100vh;
+    background-color: #94a3b8;
+    flex: 1;
+}
+
+.books-cont {
+    height: 100vh;
+    background-color: #3f3f46;
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex: 2;
+}
+
+.book-card {
+    background-color: #9ca3af;
+    width: 300px;
+    height: 200px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
 }
