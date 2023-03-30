@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 .container {
@@ -11,25 +12,67 @@
 
 .form-cont {
     height: 100vh;
-    background-color: #94a3b8;
+    background-color: #bfdbfe;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    gap: 30px;
 }
 
 .books-cont {
     height: 100vh;
-    background-color: #3f3f46;
+    background-color: #1e293b;
     display: flex;
-    gap: 20px;
     justify-content: space-around;
     flex-wrap: wrap;
-    flex: 2;
+    flex: 3;
+    padding-top: 40px;
 }
 
 .book-card {
     background-color: #9ca3af;
     width: 300px;
-    height: 200px;
-    font-size: 1.5rem;
+    max-height: 250px;
+    font-size: 1.3rem;
     border-radius: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.new-book-btn {
+    padding: 20px;
+    background-color: #312e81;
+    height: 50px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.book-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    background-color: ghostwhite;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.submit-btn {
+    padding: 20px;
+    background-color: #10b981;
+    height: 50px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }

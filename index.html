@@ -1,17 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="main.js" defer></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="form-cont"></div>
-      <div class="books-cont"></div>
-    </div>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Library</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="form-cont">
+                <button class="new-book-btn">Add a new book</button>
+                <form class="book-form">
+                    <div class="title-cont">
+                        <label for="title">Book's title</label>
+                        <input type="text" name="title" id="title" />
+                    </div>
+                    <div class="author-cont">
+                        <label for="author">Book's author</label>
+                        <input type="text" name="author" id="author" />
+                    </div>
+                    <div class="pages-cont">
+                        <label for="pages">Book's page count</label>
+                        <input type="number" name="pages" id="pages" />
+                    </div>
+                    <div class="read-cont">
+                        <fieldset>
+                            <legend>Have you read the book?</legend>
+                            <input
+                                type="radio"
+                                id="read"
+                                value="read"
+                                name="read-status"
+                            />
+                            <label for="read">Yes</label>
+                            <input
+                                type="radio"
+                                id="not-read"
+                                value="not-read"
+                                name="read-status"
+                            />
+                            <label for="read">no</label>
+                        </fieldset>
+                    </div>
+                    <div class="submit-btn-cont">
+                        <input
+                            class="submit-btn"
+                            type="submit"
+                            value="Add book"
+                        />
+                    </div>
+                </form>
+            </div>
+            <div class="books-cont"></div>
+        </div>
+    </body>
 </html>

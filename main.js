@@ -13,16 +13,14 @@ let myLibrary = [
     },
 ];
 
-console.log(myLibrary[0].title);
+let form = document.querySelector(".book-form");
+form.style.visibility = "hidden";
 
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function () {
-        return title + " by " + author + ", " + pages + " pages, " + read;
-    };
 }
 
 function addBookToLibrary(newBook) {
@@ -33,21 +31,28 @@ function loopMyLibrary() {
     let booksContainer = document.querySelector(".books-cont");
     myLibrary.forEach((book) => {
         let div = document.createElement("div");
-        let p1 = document.createElement("p");
-        let p2 = document.createElement("p");
-        let p3 = document.createElement("p");
-        let p4 = document.createElement("p");
-        p1.textContent = book.title;
-        p2.textContent = book.author;
-        p3.textContent = book.pages;
-        p4.textContent = book.read;
-        div.appendChild(p1);
-        div.appendChild(p2);
-        div.appendChild(p3);
-        div.appendChild(p4);
-        div.classList.add("book-card");
-        booksContainer.appendChild(div);
+        for (let key in book) {
+            let p = document.createElement("p");
+            p.textContent = key + ": " + book[key];
+            div.appendChild(p);
+            div.classList.add("book-card");
+            booksContainer.appendChild(div);
+        }
     });
 }
-
+addBookToLibrary(new Book("Arikka56", "Helitys", 10, true));
 loopMyLibrary();
+
+let newBook = document.querySelector(".new-book-btn");
+let submitBtn = document.querySelector(".submit-btn");
+
+function submitForm(e) {
+    e.preventDefault();
+    form.style.visibility = "hidden";
+}
+form.addEventListener("submit", submitForm);
+
+function displayForm() {
+    form.style.visibility = "visible";
+}
+newBook.addEventListener("click", displayForm);
