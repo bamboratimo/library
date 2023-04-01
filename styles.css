@@ -43,6 +43,21 @@
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    position: relative;
+}
+
+.delete-btn {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .new-book-btn {
@@ -64,6 +79,7 @@
     background-color: ghostwhite;
     padding: 40px;
     border-radius: 10px;
+    visibility: hidden;
 }
 
 .submit-btn {

@@ -12,23 +12,39 @@
         <div class="container">
             <div class="form-cont">
                 <button class="new-book-btn">Add a new book</button>
-                <form class="book-form">
+                <form class="book-form" autocomplete="off">
                     <div class="title-cont">
                         <label for="title">Book's title</label>
-                        <input type="text" name="title" id="title" />
+                        <input
+                            class="input-field title"
+                            type="text"
+                            name="name"
+                            id="name"
+                        />
                     </div>
                     <div class="author-cont">
                         <label for="author">Book's author</label>
-                        <input type="text" name="author" id="author" />
+                        <input
+                            class="input-field author"
+                            type="text"
+                            name="author"
+                            id="author"
+                        />
                     </div>
                     <div class="pages-cont">
                         <label for="pages">Book's page count</label>
-                        <input type="number" name="pages" id="pages" />
+                        <input
+                            class="input-field pages"
+                            type="number"
+                            name="pages"
+                            id="pages"
+                        />
                     </div>
                     <div class="read-cont">
                         <fieldset>
                             <legend>Have you read the book?</legend>
                             <input
+                                class="radio-yes"
                                 type="radio"
                                 id="read"
                                 value="read"
