@@ -1,5 +1,7 @@
 let myLibrary = [];
 
+let radioState;
+
 let form = document.querySelector(".book-form");
 form.addEventListener("submit", addBookToLibrary);
 
@@ -15,15 +17,36 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.changeRead = function () {
+    if (this.read === "Read") {
+        this.read = "Not read";
+    } else if (this.read === "Not read") {
+        this.read = "Read";
+    }
+    loopMyLibrary();
+};
+
 function addBookToLibrary(e) {
     e.preventDefault();
     form.style.visibility = "hidden";
     let title = document.querySelector(".title").value;
     let author = document.querySelector(".author").value;
     let pages = document.querySelector(".pages").value;
-    myLibrary.push(new Book(title, author, pages));
+    let read = radioState;
+    myLibrary.push(new Book(title, author, pages, read));
     loopMyLibrary();
 }
+
+let radioButtons = document.querySelectorAll(".radio");
+radioButtons.forEach((radio) => {
+    radio.addEventListener("click", (e) => {
+        if (e.target.value == "read") {
+            radioState = "Read";
+        } else if ((e.target.value = "not-read")) {
+            radioState = "Not read";
+        }
+    });
+});
 
 function loopMyLibrary() {
     let cards = document.querySelectorAll(".book-card");
@@ -46,17 +69,30 @@ function createCard() {
         let div = document.createElement("div");
         div.dataset.indeksi = index;
         let deleteBtn = document.createElement("div");
+        //let readBtn = document.createElement("div");
+        let readBtn = document.createElement("i");
+        //readBtn.classList.add("read-btn");
+        readBtn.classList.add("gg-trash");
+        //readBtn.textContent = "Toggle";
         deleteBtn.textContent = "X";
         deleteBtn.classList.add("delete-btn");
         for (let key in book) {
-            let p = document.createElement("p");
-            p.textContent = key + ": " + book[key];
-            div.appendChild(p);
+            if (book.hasOwnProperty(key)) {
+                let p = document.createElement("p");
+                p.textContent = book[key];
+                div.appendChild(p);
+            }
         }
         div.classList.add("book-card");
         booksContainer.appendChild(div);
         div.appendChild(deleteBtn);
+        div.appendChild(readBtn);
         deleteBtn.addEventListener("click", deleteCard);
+        readBtn.addEventListener("click", (e) => {
+            let element = e.target.parentElement;
+            let index = element.dataset.indeksi;
+            myLibrary[index].changeRead();
+        });
     });
 }
 
@@ -65,7 +101,9 @@ function displayForm() {
     fields.forEach((field) => {
         field.value = "";
     });
+    radioButtons.forEach((radio) => {
+        radio.checked = false;
+    });
+
     form.style.visibility = "visible";
-    let radioYes = document.querySelector(".radio-yes");
-    radioYes.checked = true;
 }

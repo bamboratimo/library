@@ -32,7 +32,7 @@
 }
 
 .book-card {
-    background-color: #9ca3af;
+    background-color: #e2e8f0;
     width: 300px;
     max-height: 250px;
     font-size: 1.3rem;
@@ -58,6 +58,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border-radius: 0 10px 0 10px;
 }
 
 .new-book-btn {
@@ -91,4 +92,61 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+/*.read-btn {
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    border-radius: 10px 0 10px 0;
+}*/
+
+.gg-trash {
+    box-sizing: border-box;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: block;
+    transform: scale(var(--ggs, 1));
+    width: 10px;
+    height: 12px;
+    border: 2px solid transparent;
+    box-shadow: 0 0 0 2px, inset -2px 0 0, inset 2px 0 0;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    margin-top: 4px;
+}
+.gg-trash::after,
+.gg-trash::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+}
+.gg-trash::after {
+    background: currentColor;
+    border-radius: 3px;
+    width: 16px;
+    height: 2px;
+    top: -4px;
+    left: -5px;
+}
+.gg-trash::before {
+    width: 10px;
+    height: 4px;
+    border: 2px solid;
+    border-bottom: transparent;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    top: -7px;
+    left: -2px;
 }

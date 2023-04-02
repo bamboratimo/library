@@ -20,6 +20,7 @@
                             type="text"
                             name="name"
                             id="name"
+                            required
                         />
                     </div>
                     <div class="author-cont">
@@ -29,6 +30,7 @@
                             type="text"
                             name="author"
                             id="author"
+                            required
                         />
                     </div>
                     <div class="pages-cont">
@@ -38,20 +40,23 @@
                             type="number"
                             name="pages"
                             id="pages"
+                            required
                         />
                     </div>
                     <div class="read-cont">
                         <fieldset>
                             <legend>Have you read the book?</legend>
                             <input
-                                class="radio-yes"
+                                class="radio-yes radio"
                                 type="radio"
                                 id="read"
                                 value="read"
                                 name="read-status"
+                                required
                             />
                             <label for="read">Yes</label>
                             <input
+                                class="radio-no radio"
                                 type="radio"
                                 id="not-read"
                                 value="not-read"
