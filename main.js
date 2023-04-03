@@ -2,13 +2,22 @@ let myLibrary = [];
 
 let radioState;
 
+let booksCont = document.querySelector(".books-cont");
+
+let cancel = document.querySelector(".cancel");
+
+cancel.addEventListener("click", () => {
+    form.style.display = "none";
+    backDrop.style.visibility = "hidden";
+});
+
+let backDrop = document.querySelector(".modal-backdrop");
+
 let form = document.querySelector(".book-form");
 form.addEventListener("submit", addBookToLibrary);
 
 let newBook = document.querySelector(".new-book-btn");
 newBook.addEventListener("click", displayForm);
-
-let submitBtn = document.querySelector(".submit-btn");
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -28,12 +37,13 @@ Book.prototype.changeRead = function () {
 
 function addBookToLibrary(e) {
     e.preventDefault();
-    form.style.visibility = "hidden";
+    form.style.display = "none";
     let title = document.querySelector(".title").value;
     let author = document.querySelector(".author").value;
     let pages = document.querySelector(".pages").value;
     let read = radioState;
     myLibrary.push(new Book(title, author, pages, read));
+    backDrop.style.visibility = "hidden";
     loopMyLibrary();
 }
 
@@ -106,5 +116,6 @@ function displayForm() {
         radio.checked = false;
     });
 
-    form.style.visibility = "visible";
+    backDrop.style.visibility = "visible";
+    form.style.display = "flex";
 }

@@ -7,7 +7,8 @@
 
 .container {
     display: flex;
-    height: 100%;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .form-cont {
@@ -22,13 +23,19 @@
 }
 
 .books-cont {
-    height: 100vh;
-    background-color: #1e293b;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     flex: 3;
     padding-top: 40px;
+}
+
+.books {
+    height: 100vh;
+    background-color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
 }
 
 .book-card {
@@ -46,22 +53,9 @@
     position: relative;
 }
 
-.delete-btn {
-    width: 50px;
-    height: 50px;
-    background-color: red;
-    color: #fff;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 0 10px 0 10px;
-}
-
 .new-book-btn {
+    width: 200px;
+    align-self: center;
     padding: 20px;
     background-color: #312e81;
     height: 50px;
@@ -70,17 +64,27 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border-radius: 10px;
+    border: none;
 }
 
 .book-form {
-    display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 300px;
     gap: 20px;
     background-color: ghostwhite;
-    padding: 40px;
     border-radius: 10px;
-    visibility: hidden;
+    display: none;
+    margin-top: -150px;
+    margin-left: -150px;
+    padding-right: 10px;
 }
 
 .submit-btn {
@@ -93,22 +97,6 @@
     align-items: center;
     cursor: pointer;
 }
-
-/*.read-btn {
-    width: 50px;
-    height: 50px;
-    background-color: green;
-    color: #fff;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 0.8rem;
-    border-radius: 10px 0 10px 0;
-}*/
 
 .fa-book {
     font-size: 2rem;
@@ -124,4 +112,37 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
+}
+
+.title-cont,
+.author-cont,
+.pages-cont {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.modal-backdrop {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.cancel {
+    width: 35px;
+    height: 35px;
+    background-color: red;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 10px 0 10px;
 }

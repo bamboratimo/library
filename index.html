@@ -14,71 +14,69 @@
     </head>
     <body>
         <div class="container">
-            <div class="form-cont">
+            <form class="book-form" autocomplete="off">
+                <div class="cancel">X</div>
+                <div class="title-cont">
+                    <label for="title">Book's title</label>
+                    <input
+                        class="input-field title"
+                        type="text"
+                        name="name"
+                        id="name"
+                        required
+                    />
+                </div>
+                <div class="author-cont">
+                    <label for="author">Book's author</label>
+                    <input
+                        class="input-field author"
+                        type="text"
+                        name="author"
+                        id="author"
+                        required
+                    />
+                </div>
+                <div class="pages-cont">
+                    <label for="pages">Book's page count</label>
+                    <input
+                        class="input-field pages"
+                        type="number"
+                        name="pages"
+                        id="pages"
+                        required
+                    />
+                </div>
+                <div class="read-cont">
+                    <fieldset>
+                        <legend>Have you read the book?</legend>
+                        <input
+                            class="radio-yes radio"
+                            type="radio"
+                            id="read"
+                            value="read"
+                            name="read-status"
+                            required
+                        />
+                        <label for="read">Yes</label>
+                        <input
+                            class="radio-no radio"
+                            type="radio"
+                            id="not-read"
+                            value="not-read"
+                            name="read-status"
+                        />
+                        <label for="read">no</label>
+                    </fieldset>
+                </div>
+                <div class="submit-btn-cont">
+                    <input class="submit-btn" type="submit" value="Add book" />
+                </div>
+            </form>
+            <div class="books">
                 <button class="new-book-btn">Add a new book</button>
-                <form class="book-form" autocomplete="off">
-                    <div class="title-cont">
-                        <label for="title">Book's title</label>
-                        <input
-                            class="input-field title"
-                            type="text"
-                            name="name"
-                            id="name"
-                            required
-                        />
-                    </div>
-                    <div class="author-cont">
-                        <label for="author">Book's author</label>
-                        <input
-                            class="input-field author"
-                            type="text"
-                            name="author"
-                            id="author"
-                            required
-                        />
-                    </div>
-                    <div class="pages-cont">
-                        <label for="pages">Book's page count</label>
-                        <input
-                            class="input-field pages"
-                            type="number"
-                            name="pages"
-                            id="pages"
-                            required
-                        />
-                    </div>
-                    <div class="read-cont">
-                        <fieldset>
-                            <legend>Have you read the book?</legend>
-                            <input
-                                class="radio-yes radio"
-                                type="radio"
-                                id="read"
-                                value="read"
-                                name="read-status"
-                                required
-                            />
-                            <label for="read">Yes</label>
-                            <input
-                                class="radio-no radio"
-                                type="radio"
-                                id="not-read"
-                                value="not-read"
-                                name="read-status"
-                            />
-                            <label for="read">no</label>
-                        </fieldset>
-                    </div>
-                    <div class="submit-btn-cont">
-                        <input
-                            class="submit-btn"
-                            type="submit"
-                            value="Add book"
-                        />
-                    </div>
-                </form>
+                <div class="books-cont"></div>
             </div>
-            <div class="books-cont"></div>
         </div>
+        <div class="modal-backdrop"></div>
     </body>
 </html>
