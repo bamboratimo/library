@@ -68,14 +68,15 @@ function createCard() {
     myLibrary.forEach((book, index) => {
         let div = document.createElement("div");
         div.dataset.indeksi = index;
-        let deleteBtn = document.createElement("div");
-        //let readBtn = document.createElement("div");
+        let deleteBtn = document.createElement("i");
         let readBtn = document.createElement("i");
         //readBtn.classList.add("read-btn");
-        readBtn.classList.add("gg-trash");
+        readBtn.classList.add("fa-solid");
+        readBtn.classList.add("fa-book");
         //readBtn.textContent = "Toggle";
-        deleteBtn.textContent = "X";
-        deleteBtn.classList.add("delete-btn");
+        //deleteBtn.textContent = "X";
+        deleteBtn.classList.add("fa-trash");
+        deleteBtn.classList.add("fa-solid");
         for (let key in book) {
             if (book.hasOwnProperty(key)) {
                 let p = document.createElement("p");
