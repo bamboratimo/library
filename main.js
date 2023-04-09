@@ -1,15 +1,14 @@
 let myLibrary = [];
 
-let radioState;
-
 let booksCont = document.querySelector(".books-cont");
 
 let cancel = document.querySelector(".cancel");
-
 cancel.addEventListener("click", () => {
     form.style.display = "none";
     backDrop.style.visibility = "hidden";
 });
+
+let checkbox = document.querySelector(".read-book");
 
 let backDrop = document.querySelector(".modal-backdrop");
 
@@ -27,6 +26,7 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.changeRead = function () {
+    console.log(this.read);
     if (this.read === "Read") {
         this.read = "Not read";
     } else if (this.read === "Not read") {
@@ -41,21 +41,23 @@ function addBookToLibrary(e) {
     let title = document.querySelector(".title").value;
     let author = document.querySelector(".author").value;
     let pages = document.querySelector(".pages").value;
-    let read = radioState;
+    let read;
+    if (checkbox.checked) {
+        read = "Read";
+    } else if (!checkbox.checked) {
+        read = "Not read";
+    }
     myLibrary.push(new Book(title, author, pages, read));
     backDrop.style.visibility = "hidden";
     loopMyLibrary();
 }
 
-let radioButtons = document.querySelectorAll(".radio");
-radioButtons.forEach((radio) => {
-    radio.addEventListener("click", (e) => {
-        if (e.target.value == "read") {
-            radioState = "Read";
-        } else if ((e.target.value = "not-read")) {
-            radioState = "Not read";
-        }
-    });
+checkbox.addEventListener("click", (e) => {
+    if (checkbox.checked) {
+        radioState = "Read";
+    } else if (!checkbox.checked) {
+        radioState = "Not read";
+    }
 });
 
 function loopMyLibrary() {
@@ -80,11 +82,8 @@ function createCard() {
         div.dataset.indeksi = index;
         let deleteBtn = document.createElement("i");
         let readBtn = document.createElement("i");
-        //readBtn.classList.add("read-btn");
         readBtn.classList.add("fa-solid");
         readBtn.classList.add("fa-book");
-        //readBtn.textContent = "Toggle";
-        //deleteBtn.textContent = "X";
         deleteBtn.classList.add("fa-trash");
         deleteBtn.classList.add("fa-solid");
         for (let key in book) {
@@ -112,9 +111,7 @@ function displayForm() {
     fields.forEach((field) => {
         field.value = "";
     });
-    radioButtons.forEach((radio) => {
-        radio.checked = false;
-    });
+    checkbox.checked = false;
 
     backDrop.style.visibility = "visible";
     form.style.display = "flex";

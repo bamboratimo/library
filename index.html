@@ -17,7 +17,7 @@
             <form class="book-form" autocomplete="off">
                 <div class="cancel">X</div>
                 <div class="title-cont">
-                    <label for="title">Book's title</label>
+                    <label for="title">Title</label>
                     <input
                         class="input-field title"
                         type="text"
@@ -27,7 +27,7 @@
                     />
                 </div>
                 <div class="author-cont">
-                    <label for="author">Book's author</label>
+                    <label for="author">Author</label>
                     <input
                         class="input-field author"
                         type="text"
@@ -37,7 +37,7 @@
                     />
                 </div>
                 <div class="pages-cont">
-                    <label for="pages">Book's page count</label>
+                    <label for="pages">Pages</label>
                     <input
                         class="input-field pages"
                         type="number"
@@ -47,26 +47,14 @@
                     />
                 </div>
                 <div class="read-cont">
-                    <fieldset>
-                        <legend>Have you read the book?</legend>
-                        <input
-                            class="radio-yes radio"
-                            type="radio"
-                            id="read"
-                            value="read"
-                            name="read-status"
-                            required
-                        />
-                        <label for="read">Yes</label>
-                        <input
-                            class="radio-no radio"
-                            type="radio"
-                            id="not-read"
-                            value="not-read"
-                            name="read-status"
-                        />
-                        <label for="read">no</label>
-                    </fieldset>
+                    <label for="read-status">Have you read the book?</label>
+                    <input
+                        class="read-book"
+                        type="checkbox"
+                        id="read"
+                        value="read"
+                        name="read-status"
+                    />
                 </div>
                 <div class="submit-btn-cont">
                     <input class="submit-btn" type="submit" value="Add book" />

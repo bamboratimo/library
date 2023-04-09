@@ -22,10 +22,10 @@
 }
 
 .books-cont {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding-top: 40px;
+    padding: 40px;
+    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .books {
@@ -150,4 +150,16 @@
 .input-field {
     border-radius: 10px;
     border: 1px solid black;
+    width: 200px;
+    padding: 5px 3px 5px 3px;
+}
+
+.read-book {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.read-cont {
+    display: flex;
 }
