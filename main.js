@@ -84,7 +84,7 @@ function createCard() {
         div.appendChild(bookAuthor);
 
         bookPages = document.createElement("p"); //
-        bookPages.textContent = book.pages;
+        bookPages.textContent = book.pages + " pages";
         div.appendChild(bookPages);
 
         bookRead = document.createElement("p"); //
