@@ -1,4 +1,8 @@
 let myLibrary = [];
+let bookTitle;
+let bookAuthor;
+let bookPages;
+let bookRead;
 
 let booksCont = document.querySelector(".books-cont");
 
@@ -26,7 +30,6 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.changeRead = function () {
-    console.log(this.read);
     if (this.read === "Read") {
         this.read = "Not read";
     } else if (this.read === "Not read") {
@@ -52,14 +55,6 @@ function addBookToLibrary(e) {
     loopMyLibrary();
 }
 
-checkbox.addEventListener("click", (e) => {
-    if (checkbox.checked) {
-        radioState = "Read";
-    } else if (!checkbox.checked) {
-        radioState = "Not read";
-    }
-});
-
 function loopMyLibrary() {
     let cards = document.querySelectorAll(".book-card");
     cards.forEach((card) => {
@@ -79,6 +74,30 @@ function createCard() {
     let booksContainer = document.querySelector(".books-cont");
     myLibrary.forEach((book, index) => {
         let div = document.createElement("div");
+
+        bookTitle = document.createElement("p"); //
+        bookTitle.textContent = book.title;
+        div.appendChild(bookTitle);
+
+        bookAuthor = document.createElement("p"); //
+        bookAuthor.textContent = book.author;
+        div.appendChild(bookAuthor);
+
+        bookPages = document.createElement("p"); //
+        bookPages.textContent = book.pages;
+        div.appendChild(bookPages);
+
+        bookRead = document.createElement("p"); //
+        bookRead.textContent = book.read;
+        bookRead.style.fontWeight = "bold";
+        div.appendChild(bookRead);
+
+        if (book.read == "Read") {
+            bookRead.style.color = "#22c55e";
+        } else if (book.read) {
+            bookRead.style.color = "#ef4444";
+        }
+
         div.dataset.indeksi = index;
         let deleteBtn = document.createElement("i");
         let readBtn = document.createElement("i");
@@ -86,13 +105,7 @@ function createCard() {
         readBtn.classList.add("fa-book");
         deleteBtn.classList.add("fa-trash");
         deleteBtn.classList.add("fa-solid");
-        for (let key in book) {
-            if (book.hasOwnProperty(key)) {
-                let p = document.createElement("p");
-                p.textContent = book[key];
-                div.appendChild(p);
-            }
-        }
+
         div.classList.add("book-card");
         booksContainer.appendChild(div);
         div.appendChild(deleteBtn);
