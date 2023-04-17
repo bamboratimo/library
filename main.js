@@ -1,8 +1,4 @@
 let myLibrary = [];
-let bookTitle;
-let bookAuthor;
-let bookPages;
-let bookRead;
 
 let booksCont = document.querySelector(".books-cont");
 
@@ -19,8 +15,8 @@ let backDrop = document.querySelector(".modal-backdrop");
 let form = document.querySelector(".book-form");
 form.addEventListener("submit", addBookToLibrary);
 
-let newBook = document.querySelector(".new-book-btn");
-newBook.addEventListener("click", displayForm);
+let newBookBtn = document.querySelector(".new-book-btn");
+newBookBtn.addEventListener("click", displayForm);
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -75,19 +71,19 @@ function createCard() {
     myLibrary.forEach((book, index) => {
         let div = document.createElement("div");
 
-        bookTitle = document.createElement("p"); //
+        let bookTitle = document.createElement("p"); //
         bookTitle.textContent = book.title;
         div.appendChild(bookTitle);
 
-        bookAuthor = document.createElement("p"); //
+        let bookAuthor = document.createElement("p"); //
         bookAuthor.textContent = book.author;
         div.appendChild(bookAuthor);
 
-        bookPages = document.createElement("p"); //
+        let bookPages = document.createElement("p"); //
         bookPages.textContent = book.pages + " pages";
         div.appendChild(bookPages);
 
-        bookRead = document.createElement("p"); //
+        let bookRead = document.createElement("p"); //
         bookRead.textContent = book.read;
         bookRead.style.fontWeight = "bold";
         div.appendChild(bookRead);
@@ -110,7 +106,9 @@ function createCard() {
         booksContainer.appendChild(div);
         div.appendChild(deleteBtn);
         div.appendChild(readBtn);
+
         deleteBtn.addEventListener("click", deleteCard);
+
         readBtn.addEventListener("click", (e) => {
             let element = e.target.parentElement;
             let index = element.dataset.indeksi;
